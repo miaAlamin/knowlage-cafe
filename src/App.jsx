@@ -20,9 +20,13 @@ function App() {
     setBookmarks(newBookmark);
   }
 
-  const readingHandle = read =>{
+  const readingHandle = (read, id) =>{
     
     setReading(reading + read);
+    console.log('remove',id)
+
+    const rememingbokmark = bookmarks.filter(bookmarks => bookmarks.id !== id)
+    setBookmarks(rememingbokmark);
 
 
   }
