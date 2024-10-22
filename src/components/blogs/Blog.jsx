@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import SingleBlog from "../singleBlog/SingleBlog";
 
 
-const Blog = () => {
+const Blog = ({bookmarksHandle, readingHandle}) => {
 
 
     const [blog, setBlog] = useState([]);
@@ -17,8 +18,18 @@ const Blog = () => {
 
     return (
         <div className="md:w-2/3">
-            
+
             <h1 className="text-4xl">Blogs: {blog.length}</h1>
+
+            {
+                blog.map(blog => <SingleBlog
+                    
+                    key={blog.id}
+                     blog={blog}
+                     bookmarksHandle={bookmarksHandle}
+                     readingHandle={readingHandle}
+                     ></SingleBlog>)
+            }
             
         </div>
     );
